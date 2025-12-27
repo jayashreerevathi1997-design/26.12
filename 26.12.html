@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks - 26.12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .task {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .task h3 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        input {
+            padding: 8px 12px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+ 
+
+    <!-- Task 1: Check positive, negative, or zero -->
+    <div class="task">
+        <h3>1. Check Positive, Negative, or Zero</h3>
+        <input type="number" id="num1" placeholder="Enter a number">
+        <button onclick="checkNumber()">Check</button>
+        <div class="result" id="result1"></div>
+    </div>
+
+    <!-- Task 2: Even or Odd -->
+    <div class="task">
+        <h3>2. Even or Odd</h3>
+        <input type="number" id="num2" placeholder="Enter a number">
+        <button onclick="checkEvenOdd()">Check</button>
+        <div class="result" id="result2"></div>
+    </div>
+
+    <!-- Task 3: Voting Eligibility -->
+    <div class="task">
+        <h3>3. Voting Eligibility</h3>
+        <input type="number" id="age" placeholder="Enter age">
+        <button onclick="checkVoting()">Check</button>
+        <div class="result" id="result3"></div>
+    </div>
+
+    <!-- Task 4: Compare Two Numbers -->
+    <div class="task">
+        <h3>4. Compare Two Numbers</h3>
+        <input type="number" id="numA" placeholder="First number">
+        <input type="number" id="numB" placeholder="Second number">
+        <button onclick="compareNumbers()">Compare</button>
+        <div class="result" id="result4"></div>
+    </div>
+
+    <!-- Task 5: Leap Year -->
+    <div class="task">
+        <h3>5. Leap Year Check</h3>
+        <input type="number" id="year" placeholder="Enter year">
+        <button onclick="checkLeapYear()">Check</button>
+        <div class="result" id="result5"></div>
+    </div>
+
+    <!-- Task 6: Username Validation -->
+    <div class="task">
+        <h3>6. Username Validation (Min 5 characters)</h3>
+        <input type="text" id="username" placeholder="Enter username">
+        <button onclick="validateUsername()">Validate</button>
+        <div class="result" id="result6"></div>
+    </div>
+
+    <!-- Task 7: Vowel or Consonant -->
+    <div class="task">
+        <h3>7. Vowel or Consonant</h3>
+        <input type="text" id="char" placeholder="Enter a letter" maxlength="1">
+        <button onclick="checkVowelConsonant()">Check</button>
+        <div class="result" id="result7"></div>
+    </div>
+
+    <!-- Task 8: Grade Based on Marks -->
+    <div class="task">
+        <h3>8. Grade Based on Marks</h3>
+        <input type="number" id="marks" placeholder="Enter marks (0-100)">
+        <button onclick="calculateGrade()">Get Grade</button>
+        <div class="result" id="result8"></div>
+    </div>
+
+    <!-- Task 9: Divisible by 3 and 5 -->
+    <div class="task">
+        <h3>9. Divisible by 3 and 5</h3>
+        <input type="number" id="num9" placeholder="Enter a number">
+        <button onclick="checkDivisible()">Check</button>
+        <div class="result" id="result9"></div>
+    </div>
+
+    <!-- Task 10: AM or PM -->
+    <div class="task">
+        <h3>10. AM or PM Based on Hour</h3>
+        <input type="number" id="hour" placeholder="Enter hour (0-23)">
+        <button onclick="checkAMPM()">Check</button>
+        <div class="result" id="result10"></div>
+    </div>
+
+    <h2 style="text-align: center; color: #333; margin-top: 40px;">Loop Tasks</h2>
+
+    <!-- Task 11: Print 1 to 10 -->
+    <div class="task">
+        <h3>11. Print Numbers 1 to 10</h3>
+        <button onclick="printOneTo10()">Print</button>
+        <div class="result" id="result11"></div>
+    </div>
+
+    <!-- Task 12: Even numbers 1-50 -->
+    <div class="task">
+        <h3>12. Even Numbers (1-50)</h3>
+        <button onclick="printEvenNumbers()">Print</button>
+        <div class="result" id="result12"></div>
+    </div>
+
+    <!-- Task 13: Sum of 1 to n -->
+    <div class="task">
+        <h3>13. Sum of 1 to N</h3>
+        <input type="number" id="sumN" placeholder="Enter n">
+        <button onclick="calculateSum()">Calculate</button>
+        <div class="result" id="result13"></div>
+    </div>
+
+    <!-- Task 14: Multiplication table -->
+    <div class="task">
+        <h3>14. Multiplication Table</h3>
+        <input type="number" id="tableNum" placeholder="Enter number">
+        <button onclick="printTable()">Print Table</button>
+        <div class="result" id="result14" style="white-space: pre-line;"></div>
+    </div>
+
+    <!-- Task 15: Reverse a number -->
+    <div class="task">
+        <h3>15. Reverse a Number</h3>
+        <input type="number" id="reverseNum" placeholder="Enter number">
+        <button onclick="reverseNumber()">Reverse</button>
+        <div class="result" id="result15"></div>
+    </div>
+
+    <!-- Task 16: Count digits -->
+    <div class="task">
+        <h3>16. Count Digits</h3>
+        <input type="number" id="digitNum" placeholder="Enter number">
+        <button onclick="countDigits()">Count</button>
+        <div class="result" id="result16"></div>
+    </div>
+
+    <!-- Task 17: Print array elements -->
+    <div class="task">
+        <h3>17. Print Array Elements</h3>
+        <input type="text" id="arrayInput" placeholder="Enter comma-separated values">
+        <button onclick="printArray()">Print</button>
+        <div class="result" id="result17"></div>
+    </div>
+
+    <!-- Task 18: Factorial -->
+    <div class="task">
+        <h3>18. Factorial of a Number</h3>
+        <input type="number" id="factNum" placeholder="Enter number">
+        <button onclick="calculateFactorial()">Calculate</button>
+        <div class="result" id="result18"></div>
+    </div>
+
+    <!-- Task 19: Fibonacci series -->
+    <div class="task">
+        <h3>19. Fibonacci Series</h3>
+        <input type="number" id="fibNum" placeholder="Enter n terms">
+        <button onclick="printFibonacci()">Print</button>
+        <div class="result" id="result19"></div>
+    </div>
+
+    <!-- Task 20: Largest in array -->
+    <div class="task">
+        <h3>20. Largest Number in Array</h3>
+        <input type="text" id="largestArray" placeholder="Enter comma-separated numbers">
+        <button onclick="findLargest()">Find</button>
+        <div class="result" id="result20"></div>
+    </div>
+
+    <h2 style="text-align: center; color: #333; margin-top: 40px;">String Tasks</h2>
+
+    <!-- Task 21: String length -->
+    <div class="task">
+        <h3>21. Find String Length</h3>
+        <input type="text" id="strLength" placeholder="Enter a string">
+        <button onclick="findLength()">Find Length</button>
+        <div class="result" id="result21"></div>
+    </div>
+
+    <!-- Task 22: Convert to uppercase -->
+    <div class="task">
+        <h3>22. Convert to Uppercase</h3>
+        <input type="text" id="strUpper" placeholder="Enter a string">
+        <button onclick="convertUpper()">Convert</button>
+        <div class="result" id="result22"></div>
+    </div>
+
+    <!-- Task 23: Check for JavaScript -->
+    <div class="task">
+        <h3>23. Check if String Contains "JavaScript"</h3>
+        <input type="text" id="strJS" placeholder="Enter a string">
+        <button onclick="checkJS()">Check</button>
+        <div class="result" id="result23"></div>
+    </div>
+
+    <!-- Task 24: Reverse string -->
+    <div class="task">
+        <h3>24. Reverse a String</h3>
+        <input type="text" id="strReverse" placeholder="Enter a string">
+        <button onclick="reverseString()">Reverse</button>
+        <div class="result" id="result24"></div>
+    </div>
+
+    <!-- Task 25: Count vowels -->
+    <div class="task">
+        <h3>25. Count Vowels in String</h3>
+        <input type="text" id="strVowels" placeholder="Enter a string">
+        <button onclick="countVowels()">Count</button>
+        <div class="result" id="result25"></div>
+    </div>
+
+    <!-- Task 26: Replace spaces with hyphens -->
+    <div class="task">
+        <h3>26. Replace Spaces with Hyphens</h3>
+        <input type="text" id="strHyphen" placeholder="Enter a string">
+        <button onclick="replaceSpaces()">Replace</button>
+        <div class="result" id="result26"></div>
+    </div>
+
+    <!-- Task 27: Palindrome check -->
+    <div class="task">
+        <h3>27. Check if String is Palindrome</h3>
+        <input type="text" id="strPalindrome" placeholder="Enter a string">
+        <button onclick="checkPalindrome()">Check</button>
+        <div class="result" id="result27"></div>
+    </div>
+
+    <!-- Task 28: Extract first 5 characters -->
+    <div class="task">
+        <h3>28. Extract First 5 Characters</h3>
+        <input type="text" id="strExtract" placeholder="Enter a string">
+        <button onclick="extractFirst5()">Extract</button>
+        <div class="result" id="result28"></div>
+    </div>
+
+    <!-- Task 29: Remove extra spaces -->
+    <div class="task">
+        <h3>29. Remove Extra Spaces</h3>
+        <input type="text" id="strSpaces" placeholder="Enter a string with spaces">
+        <button onclick="removeSpaces()">Remove</button>
+        <div class="result" id="result29"></div>
+    </div>
+
+    <!-- Task 30: Find index of character -->
+    <div class="task">
+        <h3>30. Find Index of Character</h3>
+        <input type="text" id="strIndex" placeholder="Enter a string">
+        <input type="text" id="charToFind" placeholder="Character" maxlength="1" style="width: 80px;">
+        <button onclick="findCharIndex()">Find</button>
+        <div class="result" id="result30"></div>
+    </div>
+
+    <h2 style="text-align: center; color: #333; margin-top: 40px;">Array Tasks</h2>
+
+    <!-- Task 31: Add element to end -->
+    <div class="task">
+        <h3>31. Add Element to End of Array</h3>
+        <input type="text" id="arr31" placeholder="Comma-separated values">
+        <input type="text" id="newElement31" placeholder="New element" style="width: 100px;">
+        <button onclick="addToEnd()">Add</button>
+        <div class="result" id="result31"></div>
+    </div>
+
+    <!-- Task 32: Remove first element -->
+    <div class="task">
+        <h3>32. Remove First Element from Array</h3>
+        <input type="text" id="arr32" placeholder="Comma-separated values">
+        <button onclick="removeFirst()">Remove</button>
+        <div class="result" id="result32"></div>
+    </div>
+
+    <!-- Task 33: Find array length -->
+    <div class="task">
+        <h3>33. Find Array Length</h3>
+        <input type="text" id="arr33" placeholder="Comma-separated values">
+        <button onclick="findArrayLength()">Find Length</button>
+        <div class="result" id="result33"></div>
+    </div>
+
+    <!-- Task 34: Check if element exists -->
+    <div class="task">
+        <h3>34. Check if Element Exists in Array</h3>
+        <input type="text" id="arr34" placeholder="Comma-separated values">
+        <input type="text" id="searchElement" placeholder="Search for" style="width: 100px;">
+        <button onclick="checkElementExists()">Check</button>
+        <div class="result" id="result34"></div>
+    </div>
+
+    <!-- Task 35: Sort array ascending -->
+    <div class="task">
+        <h3>35. Sort Array (Ascending)</h3>
+        <input type="text" id="arr35" placeholder="Comma-separated numbers">
+        <button onclick="sortAscending()">Sort</button>
+        <div class="result" id="result35"></div>
+    </div>
+
+    <!-- Task 36: Reverse array -->
+    <div class="task">
+        <h3>36. Reverse an Array</h3>
+        <input type="text" id="arr36" placeholder="Comma-separated values">
+        <button onclick="reverseArray()">Reverse</button>
+        <div class="result" id="result36"></div>
+    </div>
+
+    <!-- Task 37: Sum of array elements -->
+    <div class="task">
+        <h3>37. Sum of Array Elements</h3>
+        <input type="text" id="arr37" placeholder="Comma-separated numbers">
+        <button onclick="sumArray()">Calculate Sum</button>
+        <div class="result" id="result37"></div>
+    </div>
+
+    <!-- Task 38: Find smallest number -->
+    <div class="task">
+        <h3>38. Find Smallest Number in Array</h3>
+        <input type="text" id="arr38" placeholder="Comma-separated numbers">
+        <button onclick="findSmallest()">Find</button>
+        <div class="result" id="result38"></div>
+    </div>
+
+    <!-- Task 39: Merge two arrays -->
+    <div class="task">
+        <h3>39. Merge Two Arrays</h3>
+        <input type="text" id="arr39a" placeholder="First array">
+        <input type="text" id="arr39b" placeholder="Second array">
+        <button onclick="mergeArrays()">Merge</button>
+        <div class="result" id="result39"></div>
+    </div>
+
+    <!-- Task 40: Remove duplicates -->
+    <div class="task">
+        <h3>40. Remove Duplicates from Array</h3>
+        <input type="text" id="arr40" placeholder="Comma-separated values">
+        <button onclick="removeDuplicates()">Remove</button>
+        <div class="result" id="result40"></div>
+    </div>
+
+    <h2 style="text-align: center; color: #333; margin-top: 40px;">localStorage & sessionStorage Tasks</h2>
+
+    <!-- Task 41: Store username in localStorage -->
+    <div class="task">
+        <h3>41. Store Username in localStorage</h3>
+        <input type="text" id="localUser" placeholder="Enter username">
+        <button onclick="storeUsername()">Store</button>
+        <div class="result" id="result41"></div>
+    </div>
+
+    <!-- Task 42: Retrieve from localStorage -->
+    <div class="task">
+        <h3>42. Retrieve Data from localStorage</h3>
+        <button onclick="retrieveUsername()">Retrieve</button>
+        <div class="result" id="result42"></div>
+    </div>
+
+    <!-- Task 43: Remove item from localStorage -->
+    <div class="task">
+        <h3>43. Remove Item from localStorage</h3>
+        <input type="text" id="removeKey" placeholder="Enter key to remove">
+        <button onclick="removeFromLocal()">Remove</button>
+        <div class="result" id="result43"></div>
+    </div>
+
+    <!-- Task 44: Clear sessionStorage -->
+    <div class="task">
+        <h3>44. Clear All sessionStorage</h3>
+        <button onclick="storeSession()">Store Sample Data</button>
+        <button onclick="clearSession()">Clear All</button>
+        <div class="result" id="result44"></div>
+    </div>
+
+    <!-- Task 45: Store array in localStorage using JSON -->
+    <div class="task">
+        <h3>45. Store Array in localStorage (JSON)</h3>
+        <input type="text" id="arrLocal" placeholder="Comma-separated values">
+        <button onclick="storeArrayLocal()">Store Array</button>
+        <button onclick="getArrayLocal()">Get Array</button>
+        <div class="result" id="result45"></div>
+    </div>
+
+    <h2 style="text-align: center; color: #333; margin-top: 40px;">JSON Tasks</h2>
+
+    <!-- Task 46: Convert object to JSON -->
+    <div class="task">
+        <h3>46. Convert Object to JSON String</h3>
+        <input type="text" id="objName" placeholder="Name">
+        <input type="number" id="objAge" placeholder="Age" style="width: 80px;">
+        <button onclick="objectToJSON()">Convert</button>
+        <div class="result" id="result46"></div>
+    </div>
+
+    <!-- Task 47: Convert JSON to object -->
+    <div class="task">
+        <h3>47. Convert JSON String to Object</h3>
+        <input type="text" id="jsonStr" placeholder='{"name":"John","age":25}' style="width: 250px;">
+        <button onclick="jsonToObject()">Convert</button>
+        <div class="result" id="result47"></div>
+    </div>
+
+    <!-- Task 48: Access value from JSON -->
+    <div class="task">
+        <h3>48. Access Value from JSON Object</h3>
+        <input type="text" id="jsonAccess" placeholder='{"city":"Mumbai","country":"India"}' style="width: 280px;">
+        <input type="text" id="keyAccess" placeholder="Key" style="width: 80px;">
+        <button onclick="accessJSONValue()">Get Value</button>
+        <div class="result" id="result48"></div>
+    </div>
+
+    <h2 style="text-align: center; color: #333; margin-top: 40px;">Error Handling Tasks</h2>
+
+    <!-- Task 49: Division by zero error -->
+    <div class="task">
+        <h3>49. Handle Division by Zero (try-catch)</h3>
+        <input type="number" id="divNum" placeholder="Number">
+        <input type="number" id="divBy" placeholder="Divide by" style="width: 100px;">
+        <button onclick="divideNumbers()">Divide</button>
+        <div class="result" id="result49"></div>
+    </div>
+
+    <!-- Task 50: Custom error for empty input -->
+    <div class="task">
+        <h3>50. Custom Error for Empty Input</h3>
+        <input type="text" id="emptyCheck" placeholder="Enter something...">
+        <button onclick="checkEmpty()">Submit</button>
+        <div class="result" id="result50"></div>
+    </div>
+
+    <script>
+        // Task 1: Check positive, negative, or zero
+        function checkNumber() {
+            let num = Number(document.getElementById('num1').value);
+            let result;
+            if (num > 0) {
+                result = num + " is Positive";
+            } else if (num < 0) {
+                result = num + " is Negative";
+            } else {
+                result = "The number is Zero";
+            }
+            document.getElementById('result1').innerText = result;
+        }
+
+        // Task 2: Even or Odd
+        function checkEvenOdd() {
+            let num = Number(document.getElementById('num2').value);
+            if (num % 2 === 0) {
+                document.getElementById('result2').innerText = num + " is Even";
+            } else {
+                document.getElementById('result2').innerText = num + " is Odd";
+            }
+        }
+
+        // Task 3: Voting Eligibility
+        function checkVoting() {
+            let age = Number(document.getElementById('age').value);
+            if (age >= 18) {
+                document.getElementById('result3').innerText = "Eligible to vote!";
+            } else {
+                document.getElementById('result3').innerText = "Not eligible to vote. Wait " + (18 - age) + " more years.";
+            }
+        }
+
+        // Task 4: Compare Two Numbers
+        function compareNumbers() {
+            let a = Number(document.getElementById('numA').value);
+            let b = Number(document.getElementById('numB').value);
+            if (a > b) {
+                document.getElementById('result4').innerText = a + " is greater";
+            } else if (b > a) {
+                document.getElementById('result4').innerText = b + " is greater";
+            } else {
+                document.getElementById('result4').innerText = "Both numbers are equal";
+            }
+        }
+
+        // Task 5: Leap Year
+        function checkLeapYear() {
+            let year = Number(document.getElementById('year').value);
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                document.getElementById('result5').innerText = year + " is a Leap Year";
+            } else {
+                document.getElementById('result5').innerText = year + " is not a Leap Year";
+            }
+        }
+
+        // Task 6: Username Validation
+        function validateUsername() {
+            let username = document.getElementById('username').value;
+            if (username.length >= 5) {
+                document.getElementById('result6').innerText = "Valid username!";
+            } else {
+                document.getElementById('result6').innerText = "Invalid! Username must be at least 5 characters. Current: " + username.length;
+            }
+        }
+
+        // Task 7: Vowel or Consonant
+        function checkVowelConsonant() {
+            let char = document.getElementById('char').value.toLowerCase();
+            if (char.length !== 1 || !/[a-z]/.test(char)) {
+                document.getElementById('result7').innerText = "Please enter a single letter";
+                return;
+            }
+            let vowels = ['a', 'e', 'i', 'o', 'u'];
+            if (vowels.includes(char)) {
+                document.getElementById('result7').innerText = char.toUpperCase() + " is a Vowel";
+            } else {
+                document.getElementById('result7').innerText = char.toUpperCase() + " is a Consonant";
+            }
+        }
+
+        // Task 8: Grade Based on Marks
+        function calculateGrade() {
+            let marks = Number(document.getElementById('marks').value);
+            let grade;
+            if (marks < 0 || marks > 100) {
+                grade = "Invalid marks! Enter 0-100";
+            } else if (marks >= 90) {
+                grade = "Grade: A+";
+            } else if (marks >= 80) {
+                grade = "Grade: A";
+            } else if (marks >= 70) {
+                grade = "Grade: B";
+            } else if (marks >= 60) {
+                grade = "Grade: C";
+            } else if (marks >= 50) {
+                grade = "Grade: D";
+            } else {
+                grade = "Grade: F (Fail)";
+            }
+            document.getElementById('result8').innerText = grade;
+        }
+
+        // Task 9: Divisible by 3 and 5
+        function checkDivisible() {
+            let num = Number(document.getElementById('num9').value);
+            if (num % 3 === 0 && num % 5 === 0) {
+                document.getElementById('result9').innerText = num + " is divisible by both 3 and 5";
+            } else if (num % 3 === 0) {
+                document.getElementById('result9').innerText = num + " is divisible by 3 only";
+            } else if (num % 5 === 0) {
+                document.getElementById('result9').innerText = num + " is divisible by 5 only";
+            } else {
+                document.getElementById('result9').innerText = num + " is not divisible by 3 or 5";
+            }
+        }
+
+        // Task 10: AM or PM
+        function checkAMPM() {
+            let hour = Number(document.getElementById('hour').value);
+            if (hour < 0 || hour > 23) {
+                document.getElementById('result10').innerText = "Invalid hour! Enter 0-23";
+            } else if (hour < 12) {
+                document.getElementById('result10').innerText = hour + ":00 AM";
+            } else if (hour === 12) {
+                document.getElementById('result10').innerText = "12:00 PM (Noon)";
+            } else {
+                document.getElementById('result10').innerText = (hour - 12) + ":00 PM";
+            }
+        }
+
+        // Task 11: Print 1 to 10
+        function printOneTo10() {
+            let result = "";
+            for (let i = 1; i <= 10; i++) {
+                result += i + " ";
+            }
+            document.getElementById('result11').innerText = result;
+        }
+
+        // Task 12: Even numbers 1-50
+        function printEvenNumbers() {
+            let result = "";
+            for (let i = 2; i <= 50; i += 2) {
+                result += i + " ";
+            }
+            document.getElementById('result12').innerText = result;
+        }
+
+        // Task 13: Sum of 1 to n
+        function calculateSum() {
+            let n = Number(document.getElementById('sumN').value);
+            let sum = 0;
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            document.getElementById('result13').innerText = "Sum of 1 to " + n + " = " + sum;
+        }
+
+        // Task 14: Multiplication table
+        function printTable() {
+            let num = Number(document.getElementById('tableNum').value);
+            let result = "";
+            for (let i = 1; i <= 10; i++) {
+                result += num + " x " + i + " = " + (num * i) + "\n";
+            }
+            document.getElementById('result14').innerText = result;
+        }
+
+        // Task 15: Reverse a number
+        function reverseNumber() {
+            let num = Number(document.getElementById('reverseNum').value);
+            let reversed = 0;
+            let temp = Math.abs(num);
+            while (temp > 0) {
+                reversed = reversed * 10 + temp % 10;
+                temp = Math.floor(temp / 10);
+            }
+            if (num < 0) reversed = -reversed;
+            document.getElementById('result15').innerText = "Reversed: " + reversed;
+        }
+
+        // Task 16: Count digits
+        function countDigits() {
+            let num = Math.abs(Number(document.getElementById('digitNum').value));
+            let count = 0;
+            if (num === 0) {
+                count = 1;
+            } else {
+                while (num > 0) {
+                    count++;
+                    num = Math.floor(num / 10);
+                }
+            }
+            document.getElementById('result16').innerText = "Number of digits: " + count;
+        }
+
+        // Task 17: Print array elements
+        function printArray() {
+            let input = document.getElementById('arrayInput').value;
+            let arr = input.split(',');
+            let result = "Array elements: ";
+            for (let i = 0; i < arr.length; i++) {
+                result += arr[i].trim() + " ";
+            }
+            document.getElementById('result17').innerText = result;
+        }
+
+        // Task 18: Factorial
+        function calculateFactorial() {
+            let num = Number(document.getElementById('factNum').value);
+            if (num < 0) {
+                document.getElementById('result18').innerText = "Factorial not defined for negative numbers";
+                return;
+            }
+            let factorial = 1;
+            for (let i = 2; i <= num; i++) {
+                factorial *= i;
+            }
+            document.getElementById('result18').innerText = num + "! = " + factorial;
+        }
+
+        // Task 19: Fibonacci series
+        function printFibonacci() {
+            let n = Number(document.getElementById('fibNum').value);
+            if (n <= 0) {
+                document.getElementById('result19').innerText = "Please enter a positive number";
+                return;
+            }
+            let fib = [];
+            let a = 0, b = 1;
+            for (let i = 0; i < n; i++) {
+                fib.push(a);
+                let temp = a + b;
+                a = b;
+                b = temp;
+            }
+            document.getElementById('result19').innerText = "Fibonacci: " + fib.join(", ");
+        }
+
+        // Task 20: Largest in array
+        function findLargest() {
+            let input = document.getElementById('largestArray').value;
+            let arr = input.split(',').map(Number);
+            let largest = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > largest) {
+                    largest = arr[i];
+                }
+            }
+            document.getElementById('result20').innerText = "Largest number: " + largest;
+        }
+
+        // Task 21: String length
+        function findLength() {
+            let str = document.getElementById('strLength').value;
+            document.getElementById('result21').innerText = "Length: " + str.length + " characters";
+        }
+
+        // Task 22: Convert to uppercase
+        function convertUpper() {
+            let str = document.getElementById('strUpper').value;
+            document.getElementById('result22').innerText = "Uppercase: " + str.toUpperCase();
+        }
+
+        // Task 23: Check for JavaScript
+        function checkJS() {
+            let str = document.getElementById('strJS').value.toLowerCase();
+            if (str.includes("javascript")) {
+                document.getElementById('result23').innerText = "Yes! String contains 'JavaScript'";
+            } else {
+                document.getElementById('result23').innerText = "No, string does not contain 'JavaScript'";
+            }
+        }
+
+        // Task 24: Reverse string
+        function reverseString() {
+            let str = document.getElementById('strReverse').value;
+            let reversed = "";
+            for (let i = str.length - 1; i >= 0; i--) {
+                reversed += str[i];
+            }
+            document.getElementById('result24').innerText = "Reversed: " + reversed;
+        }
+
+        // Task 25: Count vowels
+        function countVowels() {
+            let str = document.getElementById('strVowels').value.toLowerCase();
+            let vowels = ['a', 'e', 'i', 'o', 'u'];
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.includes(str[i])) {
+                    count++;
+                }
+            }
+            document.getElementById('result25').innerText = "Number of vowels: " + count;
+        }
+
+        // Task 26: Replace spaces with hyphens
+        function replaceSpaces() {
+            let str = document.getElementById('strHyphen').value;
+            let result = str.split(' ').join('-');
+            document.getElementById('result26').innerText = "Result: " + result;
+        }
+
+        // Task 27: Check palindrome
+        function checkPalindrome() {
+            let str = document.getElementById('strPalindrome').value.toLowerCase().replace(/\s/g, '');
+            let reversed = str.split('').reverse().join('');
+            if (str === reversed) {
+                document.getElementById('result27').innerText = "'" + str + "' is a Palindrome!";
+            } else {
+                document.getElementById('result27').innerText = "'" + str + "' is NOT a Palindrome";
+            }
+        }
+
+        // Task 28: Extract first 5 characters
+        function extractFirst5() {
+            let str = document.getElementById('strExtract').value;
+            let result = str.substring(0, 5);
+            document.getElementById('result28').innerText = "First 5 characters: " + result;
+        }
+
+        // Task 29: Remove extra spaces
+        function removeSpaces() {
+            let str = document.getElementById('strSpaces').value;
+            let result = str.replace(/\s+/g, ' ').trim();
+            document.getElementById('result29').innerText = "Result: " + result;
+        }
+
+        // Task 30: Find index of character
+        function findCharIndex() {
+            let str = document.getElementById('strIndex').value;
+            let char = document.getElementById('charToFind').value;
+            let index = str.indexOf(char);
+            if (index === -1) {
+                document.getElementById('result30').innerText = "'" + char + "' not found in string";
+            } else {
+                document.getElementById('result30').innerText = "'" + char + "' found at index: " + index;
+            }
+        }
+
+        // Task 31: Add element to end
+        function addToEnd() {
+            let input = document.getElementById('arr31').value;
+            let arr = input.split(',').map(item => item.trim());
+            let newElement = document.getElementById('newElement31').value;
+            arr.push(newElement);
+            document.getElementById('result31').innerText = "New array: [" + arr.join(", ") + "]";
+        }
+
+        // Task 32: Remove first element
+        function removeFirst() {
+            let input = document.getElementById('arr32').value;
+            let arr = input.split(',').map(item => item.trim());
+            let removed = arr.shift();
+            document.getElementById('result32').innerText = "Removed: " + removed + " | New array: [" + arr.join(", ") + "]";
+        }
+
+        // Task 33: Find array length
+        function findArrayLength() {
+            let input = document.getElementById('arr33').value;
+            let arr = input.split(',').map(item => item.trim());
+            document.getElementById('result33').innerText = "Array length: " + arr.length;
+        }
+
+        // Task 34: Check if element exists
+        function checkElementExists() {
+            let input = document.getElementById('arr34').value;
+            let arr = input.split(',').map(item => item.trim());
+            let search = document.getElementById('searchElement').value.trim();
+            if (arr.includes(search)) {
+                document.getElementById('result34').innerText = "'" + search + "' exists in the array!";
+            } else {
+                document.getElementById('result34').innerText = "'" + search + "' does NOT exist in the array";
+            }
+        }
+
+        // Task 35: Sort ascending
+        function sortAscending() {
+            let input = document.getElementById('arr35').value;
+            let arr = input.split(',').map(Number);
+            arr.sort((a, b) => a - b);
+            document.getElementById('result35').innerText = "Sorted: [" + arr.join(", ") + "]";
+        }
+
+        // Task 36: Reverse array
+        function reverseArray() {
+            let input = document.getElementById('arr36').value;
+            let arr = input.split(',').map(item => item.trim());
+            arr.reverse();
+            document.getElementById('result36').innerText = "Reversed: [" + arr.join(", ") + "]";
+        }
+
+        // Task 37: Sum of array elements
+        function sumArray() {
+            let input = document.getElementById('arr37').value;
+            let arr = input.split(',').map(Number);
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            document.getElementById('result37').innerText = "Sum: " + sum;
+        }
+
+        // Task 38: Find smallest
+        function findSmallest() {
+            let input = document.getElementById('arr38').value;
+            let arr = input.split(',').map(Number);
+            let smallest = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < smallest) {
+                    smallest = arr[i];
+                }
+            }
+            document.getElementById('result38').innerText = "Smallest number: " + smallest;
+        }
+
+        // Task 39: Merge two arrays
+        function mergeArrays() {
+            let input1 = document.getElementById('arr39a').value;
+            let input2 = document.getElementById('arr39b').value;
+            let arr1 = input1.split(',').map(item => item.trim());
+            let arr2 = input2.split(',').map(item => item.trim());
+            let merged = arr1.concat(arr2);
+            document.getElementById('result39').innerText = "Merged: [" + merged.join(", ") + "]";
+        }
+
+        // Task 40: Remove duplicates
+        function removeDuplicates() {
+            let input = document.getElementById('arr40').value;
+            let arr = input.split(',').map(item => item.trim());
+            let unique = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (!unique.includes(arr[i])) {
+                    unique.push(arr[i]);
+                }
+            }
+            document.getElementById('result40').innerText = "Without duplicates: [" + unique.join(", ") + "]";
+        }
+
+        // Task 41: Store username in localStorage
+        function storeUsername() {
+            let username = document.getElementById('localUser').value;
+            if (username) {
+                localStorage.setItem('username', username);
+                document.getElementById('result41').innerText = "Stored '" + username + "' in localStorage!";
+            } else {
+                document.getElementById('result41').innerText = "Please enter a username";
+            }
+        }
+
+        // Task 42: Retrieve from localStorage
+        function retrieveUsername() {
+            let username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('result42').innerText = "Retrieved: " + username;
+            } else {
+                document.getElementById('result42').innerText = "No username found in localStorage";
+            }
+        }
+
+        // Task 43: Remove item from localStorage
+        function removeFromLocal() {
+            let key = document.getElementById('removeKey').value;
+            if (localStorage.getItem(key)) {
+                localStorage.removeItem(key);
+                document.getElementById('result43').innerText = "Removed '" + key + "' from localStorage";
+            } else {
+                document.getElementById('result43').innerText = "Key '" + key + "' not found in localStorage";
+            }
+        }
+
+        // Task 44: Clear sessionStorage
+        function storeSession() {
+            sessionStorage.setItem('temp1', 'value1');
+            sessionStorage.setItem('temp2', 'value2');
+            sessionStorage.setItem('temp3', 'value3');
+            document.getElementById('result44').innerText = "Stored 3 items in sessionStorage";
+        }
+
+        function clearSession() {
+            sessionStorage.clear();
+            document.getElementById('result44').innerText = "All sessionStorage data cleared!";
+        }
+
+        // Task 45: Store array in localStorage using JSON
+        function storeArrayLocal() {
+            let input = document.getElementById('arrLocal').value;
+            let arr = input.split(',').map(item => item.trim());
+            localStorage.setItem('myArray', JSON.stringify(arr));
+            document.getElementById('result45').innerText = "Array stored: " + JSON.stringify(arr);
+        }
+
+        function getArrayLocal() {
+            let stored = localStorage.getItem('myArray');
+            if (stored) {
+                let arr = JSON.parse(stored);
+                document.getElementById('result45').innerText = "Retrieved array: [" + arr.join(", ") + "]";
+            } else {
+                document.getElementById('result45').innerText = "No array found in localStorage";
+            }
+        }
+
+        // Task 46: Convert object to JSON
+        function objectToJSON() {
+            let name = document.getElementById('objName').value;
+            let age = Number(document.getElementById('objAge').value);
+            let obj = { name: name, age: age };
+            let jsonString = JSON.stringify(obj);
+            document.getElementById('result46').innerText = "JSON: " + jsonString;
+        }
+
+        // Task 47: Convert JSON to object
+        function jsonToObject() {
+            let jsonStr = document.getElementById('jsonStr').value;
+            try {
+                let obj = JSON.parse(jsonStr);
+                let result = "Object properties: ";
+                for (let key in obj) {
+                    result += key + " = " + obj[key] + ", ";
+                }
+                document.getElementById('result47').innerText = result.slice(0, -2);
+            } catch (e) {
+                document.getElementById('result47').innerText = "Invalid JSON string!";
+            }
+        }
+
+        // Task 48: Access value from JSON
+        function accessJSONValue() {
+            let jsonStr = document.getElementById('jsonAccess').value;
+            let key = document.getElementById('keyAccess').value;
+            try {
+                let obj = JSON.parse(jsonStr);
+                if (obj[key] !== undefined) {
+                    document.getElementById('result48').innerText = key + " = " + obj[key];
+                } else {
+                    document.getElementById('result48').innerText = "Key '" + key + "' not found in object";
+                }
+            } catch (e) {
+                document.getElementById('result48').innerText = "Invalid JSON string!";
+            }
+        }
+
+        // Task 49: Division by zero (try-catch)
+        function divideNumbers() {
+            try {
+                let num = Number(document.getElementById('divNum').value);
+                let divisor = Number(document.getElementById('divBy').value);
+
+                if (divisor === 0) {
+                    throw new Error("Cannot divide by zero!");
+                }
+
+                let result = num / divisor;
+                document.getElementById('result49').innerText = num + " / " + divisor + " = " + result;
+            } catch (error) {
+                document.getElementById('result49').innerText = "Error: " + error.message;
+            }
+        }
+
+        // Task 50: Custom error for empty input
+        function checkEmpty() {
+            try {
+                let input = document.getElementById('emptyCheck').value;
+
+                if (input.trim() === "") {
+                    throw new Error("Input cannot be empty! Please enter a value.");
+                }
+
+                document.getElementById('result50').innerText = "Success! You entered: " + input;
+            } catch (error) {
+                document.getElementById('result50').innerText = "Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
